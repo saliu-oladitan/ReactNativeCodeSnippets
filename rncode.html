@@ -1,2 +1,39 @@
 1. Good React Native Cheat Sheet
 https://github.com/vhpoet/react-native-styling-cheat-sheet
+
+2. Add and remove from a list
+
+App.js
+
+
+const onAddRandom = ()=>{
+    const ranNumber = Math.floor((Math.random() * 100) + 1);
+    const newArray = [...random,ranNumber];
+    setRandom(newArray);
+  }
+
+  const onItemRemove= (position)=>{
+    const newArray = random.filter((item,i)=>{
+      return position !==i;
+    });
+    setRandom(newArray);
+  }
+
+  return(
+    <View style={styles.mainStyle}>
+      <Nav nameOfApp="Awesome App"/>
+      <View style={styles.basicView}>
+      <Text style={styles.basicText}>Text for view 1</Text>
+      </View>
+      <View style={styles.basicView}>
+      <Text style={styles.basicText}>Text for view 2 </Text>
+      </View>
+      {/* {
+        Check ? <Text>True</Text> : <Text>False</Text>
+      } */}
+      <View><Generate addFunction={()=>onAddRandom()}/></View>
+      <ListItems items={random} remove={(pos)=>onItemRemove(pos)}/>
+      <Inputs></Inputs>
+    </View>
+  )
+}
