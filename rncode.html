@@ -1,5 +1,77 @@
-1. Good React Native Cheat Sheet
-https://github.com/vhpoet/react-native-styling-cheat-sheet
+3. Simple To-do App
+
+import React from 'react';
+import { Text, View, StyleSheet, TextInput,Button, Pressable } from 'react-native';
+import { useState } from 'react/cjs/react.development';
+
+
+
+const Inputs = () =>{
+    const[myInput, setMyInput] = useState('Type your text here');
+    const[names,setNames] = useState(['OBuild an App','Code with a friend'])
+
+    const onAddUser=()=>{
+        const newState=[...names,myInput];
+        setNames(newState);
+        setMyInput('');
+    }
+
+    const onRemove=(position)=>{
+        const newArray=names.filter((names,name)=>{
+            return position !==name;
+        });
+        setNames(newArray);
+    }
+return(
+    <>
+    <TextInput
+        value={myInput}
+        style={styles.input}
+        onChangeText={text => setMyInput(text)}
+    />
+    <Button
+        title={'Add Text'}
+        onPress={onAddUser}
+        color='purple'
+    />
+    {names.map((name,i)=>(
+    <Pressable
+    onPress={()=>onRemove(i)}
+    style={styles.textList}
+    >    
+
+        <Text key={name}>{name}</Text>
+
+    </Pressable>    
+    ))}
+    </>
+    )
+    }
+
+
+const styles=StyleSheet.create({
+
+    input:{
+        width:'100%',
+        backgroundColor:'#89F4CF',
+        marginTop:20,
+        fontSize:20
+    },
+
+    textList: {
+        backgroundColor:'#cecece',
+        alignItems:'center',
+        padding:10,
+        marginTop:5,
+        width:'100%'
+    }
+})
+
+
+export default Inputs;
+
+
+
 
 2. Add and remove from a list
 
@@ -37,3 +109,7 @@ const onAddRandom = ()=>{
     </View>
   )
 }
+
+          
+ 1. Good React Native Cheat Sheet
+https://github.com/vhpoet/react-native-styling-cheat-sheet
