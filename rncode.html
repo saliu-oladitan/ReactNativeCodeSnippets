@@ -1,3 +1,22 @@
+4. Solution to the error:
+ON MAC: Android Support plugin for IntelliJ IDEA (or Android Studio) cannot open this project
+ON WINDOWS: This version of the Android Support plugin for IntelliJ IDEA (or Android Studio) cannot open this project, please retry with version 4.2 or newer.
+Or something similar to that but depicts the same thing.
+
+
+(https://stackoverflow.com/questions/62678785/android-support-plugin-for-intellij-idea-or-android-studio-cannot-open-this-pr)
+
+>>> Use this
+distributionUrl=https\://services.gradle.org/distributions/gradle-6.1.1-all.zip
+
+in file gradle-wrapper.properties, and then change to
+
+>>>classpath 'com.android.tools.build:gradle:4.0.1'
+
+in build.gradle (project)
+
+
+
 3. Simple To-do App
 
 import React from 'react';
