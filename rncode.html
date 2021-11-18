@@ -1,3 +1,54 @@
+8. Simple calculator
+import React, {useState, useEffect} from "react";
+import { View, Text, Button, StyleSheet, TextInput } from "react-native";
+
+
+
+const App=()=>{
+ const [result,setResult] = useState(0);
+ const [text1,setText1] = useState(0);
+  return(
+    <View style={{marginTop:50, alignItems:'center'}}>
+      <TextInput
+        placeholder="Input Number"
+        value={text1}
+        onChangeText={setText1}
+        keyboardType="number-pad"
+      />
+      <Button
+      title="+"
+      onPress={()=>setResult(parseInt(result) + parseInt(text1))}
+      />
+       <Button
+      title="-"
+      onPress={()=>setResult(parseInt(result) - parseInt(text1))}
+      />
+      <Button
+      title="x"
+      onPress={()=>setResult(parseInt(result) * parseInt(text1))}
+      />
+      <Button
+      title="/"
+      onPress={()=>setResult(parseInt(result) / parseInt(text1))}
+      />
+      <Button
+      title="Clear"
+      onPress={()=>setResult(0)}
+      />
+      <Text  style={styles.fieldStyle}> {result} </Text>
+    </View>
+  )
+}
+
+
+const styles = StyleSheet.create({
+  fieldStyle:{
+    marginTop: 100
+  }
+})
+
+export default App;
+
 7. Create React Native using template )(You can find the template here)
 https://github.com/expo/create-react-native-app
 
